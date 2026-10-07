@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Dasarla Abhilash - B.Tech CSE AI/ML Engineering Fresher Portfolio">
+<title>Dasarla Abhilash | AI/ML Engineer</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;scroll-behavior:smooth}
+body{
+    font-family:"Lucida Calligraphy","Segoe Script","Brush Script MT",cursive;
+    background:#0d1b2a;color:#fff;line-height:1.6;
+}
+nav{
+    position:fixed;top:0;width:100%;z-index:1000;
+    background:rgba(7,11,20,.92);backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(255,255,255,.08)
+}
+.nav-container{
+    max-width:1150px;margin:auto;padding:18px 25px;
+    display:flex;justify-content:space-between;align-items:center
+}
+.logo{font-size:25px;font-weight:bold;color:#00e5ff}
+.nav-links{display:flex;gap:28px;list-style:none}
+.nav-links a{color:#ddd;text-decoration:none;transition:.3s}
+.nav-links a:hover{color:#00e5ff}
+.menu{display:none;font-size:28px;cursor:pointer}
+
+.hero{
+    min-height:100vh;display:flex;align-items:center;justify-content:center;
+    text-align:center;padding:100px 20px 60px;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(0,229,255,.15),transparent 30%),
+    radial-gradient(circle at 80% 70%,rgba(0,120,255,.14),transparent 30%);
+}
+.hero-content{max-width:850px}
+.profile-circle{
+    width:145px;height:145px;border-radius:50%;margin:0 auto 25px;
+    display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,#00e5ff,#087cfb);padding:4px;
+    box-shadow:0 0 45px rgba(0,229,255,.25)
+}
+.profile-circle span{
+    width:100%;height:100%;border-radius:50%;background:#101725;
+    display:flex;align-items:center;justify-content:center;
+    font-size:48px;font-weight:bold
+}
+.hero h1{font-size:clamp(42px,7vw,75px);margin-bottom:10px}
+.hero h1 span,.section-title span{color:#00e5ff}
+.hero h2{font-size:clamp(20px,4vw,30px);color:#bbb;margin-bottom:20px}
+.hero p{color:#aaa;max-width:700px;margin:auto;font-size:17px}
+.buttons{margin-top:30px;display:flex;gap:15px;justify-content:center;flex-wrap:wrap}
+.btn{
+    padding:13px 25px;border-radius:30px;text-decoration:none;font-weight:bold;
+    transition:.3s;display:inline-block;cursor:pointer
+}
+.primary{background:#00e5ff;color:#001018}
+.secondary{border:1px solid #00e5ff;color:#00e5ff}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 25px rgba(0,229,255,.2)}
+
+section{padding:90px 20px}
+.container{max-width:1100px;margin:auto}
+.section-title{text-align:center;margin-bottom:50px}
+.section-title h2{font-size:38px;margin-bottom:10px}
+.section-title p{color:#888}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:35px;align-items:center}
+.about-text{color:#bbb;font-size:17px}
+.about-card,.skill,.project,.contact-box{
+    background:#101725;border:1px solid rgba(255,255,255,.08)
+}
+.about-card{padding:30px;border-radius:18px}
+.about-card div{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.about-card div:last-child{border-bottom:none}
+.about-card strong{color:#00e5ff}
+
+.skills-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.skill{padding:25px;text-align:center;border-radius:15px;transition:.3s}
+.skill:hover,.project:hover{transform:translateY(-7px);border-color:#00e5ff}
+.skill .icon{font-size:35px;margin-bottom:10px}
+.skill h3{margin-bottom:6px}.skill p{color:#888;font-size:14px}
+
+.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.project{padding:28px;border-radius:18px;transition:.3s}
+.project-icon{font-size:42px;margin-bottom:15px}
+.project h3{margin-bottom:10px}.project p{color:#999;font-size:15px}
+.tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+.tag{font-size:12px;padding:5px 10px;border-radius:20px;background:rgba(0,229,255,.1);color:#00e5ff}
+
+.education-card{
+    max-width:750px;margin:auto;background:#101725;
+    border-left:4px solid #00e5ff;padding:30px;border-radius:12px
+}
+.education-card h3{font-size:24px;margin-bottom:8px}
+.education-card p{color:#999;margin:5px 0}
+
+.cursive-showcase{
+    max-width:900px;margin:auto;padding:35px 25px;text-align:center;
+    background:#101725;border-top:3px solid #00e5ff;
+    border-bottom:3px solid #00e5ff;border-radius:14px
+}
+.cursive-line{
+    margin:18px 0;color:#00e5ff;
+    font-family:"Brush Script MT","Segoe Script",cursive;
+    font-size:clamp(28px,5vw,48px);line-height:1.3
+}
+.cursive-label{color:#aaa;font-size:13px;letter-spacing:1px;text-transform:uppercase}
+
+/* CONTACT */
+.contact-box{
+    max-width:850px;margin:auto;padding:40px;border-radius:20px
+}
+.contact-box > p{text-align:center;color:#aaa;margin-bottom:25px}
+.contact-details{
+    display:flex;justify-content:center;gap:15px;flex-wrap:wrap;margin-bottom:30px
+}
+.contact-details a{
+    color:#00e5ff;text-decoration:none;border:1px solid rgba(0,229,255,.25);
+    padding:10px 16px;border-radius:25px;transition:.3s
+}
+.contact-details a:hover{background:rgba(0,229,255,.1);transform:translateY(-2px)}
+
+.contact-form{display:grid;grid-template-columns:1fr 1fr;gap:18px;text-align:left}
+.form-group{display:flex;flex-direction:column}
+.form-group.full{grid-column:1/-1}
+.form-group label{font-size:14px;color:#bbb;margin-bottom:7px}
+.form-group input,.form-group textarea,.form-group select{
+    width:100%;padding:14px 15px;border-radius:12px;
+    border:1px solid rgba(255,255,255,.12);
+    background:#0b1220;color:#fff;outline:none;
+    font-family:inherit;font-size:14px;transition:.3s
+}
+.form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+    border-color:#00e5ff;box-shadow:0 0 0 3px rgba(0,229,255,.08)
+}
+.form-group textarea{min-height:150px;resize:vertical}
+.form-group select option{background:#101725}
+.submit-row{text-align:center;grid-column:1/-1;margin-top:5px}
+.submit-btn{
+    border:none;padding:14px 35px;border-radius:30px;
+    background:#00e5ff;color:#001018;font-weight:bold;
+    font-family:inherit;font-size:16px;cursor:pointer;transition:.3s
+}
+.submit-btn:hover{transform:translateY(-3px);box-shadow:0 10px 25px rgba(0,229,255,.2)}
+.form-status{
+    grid-column:1/-1;text-align:center;display:none;
+    padding:12px;border-radius:10px;color:#00e5ff;
+    background:rgba(0,229,255,.08)
+}
+.contact-note{text-align:center;color:#777;font-size:12px;margin-top:18px}
+
+footer{text-align:center;padding:30px 20px;background:#050810;color:#777}
+footer span{color:#00e5ff}
+
+@media(max-width:850px){
+    .nav-links{
+        display:none;position:absolute;top:65px;left:0;width:100%;
+        background:#0a0f1a;flex-direction:column;padding:25px;text-align:center
+    }
+    .nav-links.active{display:flex}.menu{display:block}
+    .about{grid-template-columns:1fr}
+    .skills-grid{grid-template-columns:repeat(2,1fr)}
+    .projects{grid-template-columns:1fr}
+}
+@media(max-width:600px){
+    .contact-form{grid-template-columns:1fr}
+    .form-group.full,.submit-row,.form-status{grid-column:1}
+}
+@media(max-width:500px){
+    .skills-grid{grid-template-columns:1fr}
+    section{padding:70px 15px}
+    .contact-box{padding:25px 18px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-container">
+<div class="logo">DA.</div>
+<ul class="nav-links" id="navLinks">
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About</a></li>
+<li><a href="#skills">Skills</a></li>
+<li><a href="#projects">Projects</a></li>
+<li><a href="#education">Education</a></li>
+<li><a href="#cursive">Cursive</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+<div class="menu" onclick="toggleMenu()">☰</div>
+</div>
+</nav>
+
+<section class="hero" id="home">
+<div class="hero-content">
+<div class="profile-circle"><span>DA</span></div>
+<h1>Dasarla <span>Abhilash</span></h1>
+<h2>B.Tech CSE | AI/ML Engineering Fresher</h2>
+<p>Passionate about Artificial Intelligence, Machine Learning, Python and building practical technology projects. I am continuously learning and turning ideas into real-world solutions.</p>
+<div class="buttons">
+<a href="#projects" class="btn primary">View My Projects</a>
+<a href="#contact" class="btn secondary">Contact Me</a>
+</div>
+</div>
+</section>
+
+<section id="about">
+<div class="container">
+<div class="section-title"><h2>About <span>Me</span></h2><p>Get to know me</p></div>
+<div class="about">
+<div class="about-text">
+<p>Hello! I'm <strong>Dasarla Abhilash</strong>, a B.Tech Computer Science student specializing in Artificial Intelligence and Machine Learning.</p><br>
+<p>I enjoy learning programming, artificial intelligence, machine learning and web development. My goal is to become a skilled AI/ML engineer and create useful technology that solves real-world problems.</p><br>
+<p>I believe in learning by building projects and improving my technical and communication skills every day.</p>
+</div>
+<div class="about-card">
+<div><strong>Name:</strong> Dasarla Abhilash</div>
+<div><strong>Field:</strong> Computer Science</div>
+<div><strong>Specialization:</strong> AI / ML</div>
+<div><strong>Experience:</strong> Fresher</div>
+<div><strong>Location:</strong> India</div>
+</div>
+</div>
+</div>
+</section>
+
+<section id="skills">
+<div class="container">
+<div class="section-title"><h2>My <span>Skills</span></h2><p>Technologies I'm learning and working with</p></div>
+<div class="skills-grid">
+<div class="skill"><div class="icon">🐍</div><h3>Python</h3><p>Programming & problem solving</p></div>
+<div class="skill"><div class="icon">🤖</div><h3>AI / ML</h3><p>Artificial Intelligence & Machine Learning</p></div>
+<div class="skill"><div class="icon">🌐</div><h3>HTML & CSS</h3><p>Responsive web development</p></div>
+<div class="skill"><div class="icon">💻</div><h3>C Programming</h3><p>Programming fundamentals</p></div>
+<div class="skill"><div class="icon">🧠</div><h3>Problem Solving</h3><p>Logical thinking & algorithms</p></div>
+<div class="skill"><div class="icon">📊</div><h3>Data Analysis</h3><p>Learning data-driven techniques</p></div>
+<div class="skill"><div class="icon">⚙️</div><h3>Git / GitHub</h3><p>Version control fundamentals</p></div>
+<div class="skill"><div class="icon">💡</div><h3>Project Building</h3><p>Turning ideas into applications</p></div>
+</div>
+</div>
+</section>
+
+<section id="projects">
+<div class="container">
+<div class="section-title"><h2>My <span>Projects</span></h2><p>Some projects and applications I'm working on</p></div>
+<div class="projects">
+<div class="project"><div class="project-icon">🤖</div><h3>SmartCampusAI</h3><p>An AI-powered college assistant designed to answer student questions using college-related information such as timetable, syllabus, attendance and fees.</p><div class="tags"><span class="tag">Python</span><span class="tag">AI</span><span class="tag">RAG</span><span class="tag">Chatbot</span></div></div>
+<div class="project"><div class="project-icon">🧮</div><h3>Abhi Calculator</h3><p>A responsive calculator web application designed for mobile and desktop browsers with a clean, simple interface.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div>
+<div class="project"><div class="project-icon">🐍</div><h3>Abhi Snake Game</h3><p>A browser-based Snake Game created using JavaScript with responsive controls and interactive gameplay.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span></div></div>
+<div class="project"><div class="project-icon">🏫</div><h3>College Enquiry Chatbot</h3><p>A simple AI chatbot concept for helping students get answers to common college-related questions.</p><div class="tags"><span class="tag">AI</span><span class="tag">Python</span><span class="tag">Chatbot</span></div></div>
+<div class="project"><div class="project-icon">🍲</div><h3>Sri Annapurna Cooking Services</h3><p>A responsive business website concept for a cooking service providing vegetarian and non-vegetarian food for family functions.</p><div class="tags"><span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Business Website</span></div></div>
+<div class="project"><div class="project-icon">✊</div><h3>AI Rock Paper Scissors</h3><p>A simple game where the computer acts as an AI opponent and plays Rock, Paper, Scissors with the user.</p><div class="tags"><span class="tag">Python</span><span class="tag">AI</span><span class="tag">Game</span></div></div>
+</div>
+</div>
+</section>
+
+<section id="education">
+<div class="container">
+<div class="section-title"><h2>My <span>Education</span></h2><p>Academic journey</p></div>
+<div class="education-card">
+<h3>B.Tech — Computer Science Engineering</h3>
+<p><strong>Specialization:</strong> Artificial Intelligence & Machine Learning</p>
+<p><strong>Status:</strong> Currently pursuing</p>
+<p><strong>University:</strong> Sandip University</p>
+</div>
+</div>
+</section>
+
+<section id="cursive">
+<div class="container">
+<div class="section-title"><h2><span>Cursive</span> Showcase</h2><p>My personal style</p></div>
+<div class="cursive-showcase">
+<div class="cursive-label">AI • ML • Python • Innovation</div>
+<div class="cursive-line">Learn. Build. Improve.</div>
+<div class="cursive-label">Turning ideas into real-world technology</div>
+</div>
+</div>
+</section>
+
+<section id="contact">
+<div class="container">
+<div class="section-title">
+<h2>Contact <span>Me</span></h2>
+<p>Let's connect and build something great</p>
+</div>
+
+<div class="contact-box">
+<p>I'm open to learning opportunities, projects, internships and technology discussions.</p>
+
+<div class="contact-details">
+<a href="mailto:YOUR_EMAIL@gmail.com">📧 Email</a>
+<a href="https://wa.me/YOUR_PHONE_NUMBER" target="_blank">💬 WhatsApp</a>
+<a href="https://www.linkedin.com/" target="_blank">💼 LinkedIn</a>
+<a href="https://github.com/" target="_blank">🐙 GitHub</a>
+</div>
+
+<form class="contact-form" id="contactForm">
+<div class="form-group">
+<label for="name">Your Name *</label>
+<input type="text" id="name" name="name" placeholder="Enter your name" required>
+</div>
+
+<div class="form-group">
+<label for="email">Your Email *</label>
+<input type="email" id="email" name="email" placeholder="Enter your email" required>
+</div>
+
+<div class="form-group">
+<label for="phone">Phone Number</label>
+<input type="tel" id="phone" name="phone" placeholder="Enter your phone number">
+</div>
+
+<div class="form-group">
+<label for="subject">Subject *</label>
+<select id="subject" name="subject" required>
+<option value="">Select a subject</option>
+<option>Internship Opportunity</option>
+<option>Project Collaboration</option>
+<option>AI / ML Discussion</option>
+<option>Freelance Project</option>
+<option>General Message</option>
+</select>
+</div>
+
+<div class="form-group full">
+<label for="message">Your Message *</label>
+<textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+</div>
+
+<div class="form-status" id="formStatus"></div>
+
+<div class="submit-row">
+<button type="submit" class="submit-btn">📨 Send Message</button>
+</div>
+</form>
+
+<div class="contact-note">
+Your message will open your email application with the details filled in.
+</div>
+</div>
+</div>
+</section>
+
+<footer>
+<p>© 2026 <span>Dasarla Abhilash</span> | AI/ML Engineer Portfolio</p>
+</footer>
+
+<script>
+function toggleMenu(){
+    document.getElementById("navLinks").classList.toggle("active");
+}
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+    link.addEventListener("click",()=>{
+        document.getElementById("navLinks").classList.remove("active");
+    });
+});
+
+const form=document.getElementById("contactForm");
+const statusBox=document.getElementById("formStatus");
+
+form.addEventListener("submit",function(e){
+    e.preventDefault();
+
+    const name=document.getElementById("name").value.trim();
+    const email=document.getElementById("email").value.trim();
+    const phone=document.getElementById("phone").value.trim();
+    const subject=document.getElementById("subject").value;
+    const message=document.getElementById("message").value.trim();
+
+    const portfolioEmail="YOUR_EMAIL@gmail.com";
+
+    const body=
+`Hello Abhilash,
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone || "Not provided"}
+Subject: ${subject}
+
+Message:
+${message}`;
+
+    const mailto=
+        "mailto:"+portfolioEmail+
+        "?subject="+encodeURIComponent(subject+" - Portfolio Contact")+
+        "&body="+encodeURIComponent(body);
+
+    statusBox.style.display="block";
+    statusBox.textContent="Opening your email application...";
+
+    window.location.href=mailto;
+
+    setTimeout(()=>{
+        statusBox.textContent="If your email app did not open, check your browser's mail settings.";
+    },1500);
+});
+</script>
+
+</body>
+</html>
